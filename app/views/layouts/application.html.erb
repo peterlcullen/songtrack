@@ -7,11 +7,67 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="container">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-    <%= yield %>
+  
+  
+  <div class="container">
+    
+    <div class="content">
+      
+      <div class="page-header"> 
+        <div class="row">
+          <div class="span8">
+            <h1>Example of the site <small>for now..</small></h1>
+          </div>
+          
+          <div class="span6">
+            
+            <% if current_user.blank? %>
+            
+              <%= form_tag sessions_path do %>
+                <%= text_field_tag :email, params[:email], :class => "input-small", :placeholder => "Email" %>
+                <%= text_field_tag :password, params[:password], :type => "password", :class => "input-small", :placeholder => "Password" %>
+                <%= submit_tag "Log in", :class => "btn" %>
+
+              <% end %>
+            
+              <div id="modal-from-dom-signup" class="modal hide fade">
+                  <%= render "users/new" %>
+              </div>
+
+              Or you can <a href="/sessions/new" data-controls-modal="modal-from-dom-signup" data-backdrop="true" data-keyboard="true">sign up</a>.
+          
+          <% else %>
+          
+            <p>You are logged in as <%= current_user.email %>.</p>
+            <p><%= link_to "Log out", session_path(current_user), :method => "delete"%></p>
+          
+          <% end %>
+          </div>
+          
+        </div>
+         
+        
+        
+        
+      </div>
+      
+      
+      <div class="row">
+        <div class="span10">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+          <% end %>
+          <%= yield %>
+        </div>
+        
+      </div>
+      
+    </div>
+              
+              
+    
+    
+    
   </div>
 
 </body>

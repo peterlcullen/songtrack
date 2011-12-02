@@ -1,0 +1,46 @@
+
+<%= form_for @user do |f| %>
+  <div class="modal-header">
+    <a href="#" class="close">&times;</a>
+    <h3>Sign up</h3>
+  </div>
+  
+  <div class="modal-body">
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <fieldset>
+      <div class="clearfix">
+        <%= f.label :email %>
+        <div class="input">
+          <%= f.text_field :email %>
+        </div>
+      </div>
+      <div class="clearfix">
+        <%= f.label :password %>
+        <div class="input">
+          <%= f.password_field :password %>
+        </div>
+      </div>
+      <div class="clearfix">
+        <%= f.label :password_confirmation %>
+        <div class="input">
+          <%= f.password_field :password_confirmation %>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  
+  <div class="modal-footer">
+    <%= f.submit :class => "btn primary"%>
+  </div>
+  
+<% end %>
+

@@ -1,0 +1,32 @@
+
+<%= form_tag sessions_path do %>
+  <div class="modal-header">
+    <a href="#" class="close">&times;</a>
+    <h3>Sign in</h3>
+    <p>Don't have an account? <a href="#">Sign up</a>.</p>
+  </div>
+  
+  <div class="modal-body">
+    
+    <div class="clearfix">
+      <%= label_tag :email %>
+      <div class="input">
+        <%= text_field_tag :email, params[:email] %>
+      </div>
+    </div>
+    
+    <div class="clearfix">
+      <%= label_tag :password %>
+      <div class="input">
+        <%= password_field_tag :password %>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="modal-footer"><%= submit_tag "Log in", :class => "btn primary" %></div>
+  
+<% end %>
+
+
+
