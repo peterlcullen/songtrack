@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   def index
     @user = User.new
-    @songs = Song.all
+    @songs = Song.all.reverse
     @song = Song.new
   end
   
@@ -21,6 +21,7 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find_by_id(params[:id])
     @song.destroy
-    redirect_to root_url, :notice => "Song was deleted"
+    redirect_to root_url, :alert => "Song was deleted"
   end
 end
+

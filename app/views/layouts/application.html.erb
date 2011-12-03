@@ -56,9 +56,15 @@
         <div class="span10">
           <% flash.each do |name, msg| %>
             <% if name = "notice" %>
-              <%= content_tag :div, msg, :class => "alert-message block-message success" %>
+              <div class="alert-message block-message success fade in" data-alert="alert">
+                <a href="#" class="close">×</a>
+                <p><%= msg %></p>
+              </div>
             <% else %>
-              <%= content_tag :div, msg, :class => "alert-message block-message warning" %>
+              <div class="alert-message block-message warning fade in" data-alert="alert">
+                <a href="#" class="close">×</a>
+                <p><%= msg %></p>
+              </div>
             <% end %>
           <% end %>
           <%= yield %>

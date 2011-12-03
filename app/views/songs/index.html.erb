@@ -1,8 +1,7 @@
-<h3>
-  Here are all the songs.  <br/>
-  <% unless current_user.blank? %> <a href="/song/new" class="btn" data-controls-modal="modal-from-dom-new-song" data-backdrop="true" data-keyboard="true">Add one</a> 
+
+  <% unless current_user.blank? %> 
+    <a href="/song/new" class="btn" data-controls-modal="modal-from-dom-new-song" data-backdrop="true" data-keyboard="true">Add a song</a> 
   <% end %> 
-</h3>
 
 <div id="modal-from-dom-new-song" class="modal hide fade">
     <%= render "songs/new" %>
@@ -31,16 +30,20 @@
                 <object width="250" height="40" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="gsSong250360980" name="gsSong250360980"><param name="movie" value="http://grooveshark.com/songWidget.swf" /><param name="wmode" value="transparent" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs=<%= s.foreign_id %>&style=metal&p=0" /><!--[if !IE]>--><object type="application/x-shockwave-flash" data="http://grooveshark.com/songWidget.swf" width="250" height="40"><param name="wmode" value="transparent" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs=<%= s.foreign_id %>&style=metal&p=0" /></object><!--<![endif]--></object>
               <% when "bandcamp" %>
                 <iframe width="400" height="100" style="position: relative; display: block; width: 400px; height: 100px;" src="http://bandcamp.com/EmbeddedPlayer/v=2/track=<%= s.foreign_id %>/size=venti/bgcol=FFFFFF/linkcol=4285BB/" allowtransparency="true" frameborder="0"></iframe>
+              <% when "soundcloud"%>
+                <object height="81" width="100%"> <param name="movie" value="https://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F858566&amp;show_comments=true&amp;auto_play=false&amp;color=ff7700"></param> <param name="wmode" value="transparent" /><param name="allowscriptaccess" value="always"></param> <embed allowscriptaccess="always" height="81" src="https://player.soundcloud.com/player.swf?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F858566&amp;show_comments=true&amp;auto_play=false&amp;color=ff7700" type="application/x-shockwave-flash" width="100%"></embed> </object>   
               <% else %>
                 <p><%= s.source %> is invalid.</p>
             <% end %>
           </td>
           <td>
-            <%= link_to "refresh", song_path(s), :method => "" %>
+            <p><small>added <%= time_ago_in_words(s.created_at) %> ago</small></p>
           </td>
-          <td>
-            <%= link_to "delete", song_path(s), :method => "delete" %>
-          </td>
+          <% unless current_user.blank? %> 
+            <td>
+              <p><small><%= link_to "delete", song_path(s), :method => "delete" %></small></p>
+            </td>
+          <% end%>
         </tr>
       <% end %>
     </tbody>
