@@ -28,12 +28,15 @@
           <td>
             <% case s.source %>
               <% when "grooveshark" %>
-                <object width="250" height="40" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="gsSong250360980" name="gsSong250360980"><param name="movie" value="http://grooveshark.com/songWidget.swf" /><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs=<%= s.foreign_id %>&style=metal&p=0" /><!--[if !IE]>--><object type="application/x-shockwave-flash" data="http://grooveshark.com/songWidget.swf" width="250" height="40"><param name="wmode" value="window" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs=<%= s.foreign_id %>&style=metal&p=0" /></object><!--<![endif]--></object>
+                <object width="250" height="40" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="gsSong250360980" name="gsSong250360980"><param name="movie" value="http://grooveshark.com/songWidget.swf" /><param name="wmode" value="transparent" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs=<%= s.foreign_id %>&style=metal&p=0" /><!--[if !IE]>--><object type="application/x-shockwave-flash" data="http://grooveshark.com/songWidget.swf" width="250" height="40"><param name="wmode" value="transparent" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="hostname=cowbell.grooveshark.com&songIDs=<%= s.foreign_id %>&style=metal&p=0" /></object><!--<![endif]--></object>
               <% when "bandcamp" %>
                 <iframe width="400" height="100" style="position: relative; display: block; width: 400px; height: 100px;" src="http://bandcamp.com/EmbeddedPlayer/v=2/track=<%= s.foreign_id %>/size=venti/bgcol=FFFFFF/linkcol=4285BB/" allowtransparency="true" frameborder="0"></iframe>
               <% else %>
                 <p><%= s.source %> is invalid.</p>
             <% end %>
+          </td>
+          <td>
+            <%= link_to "refresh", song_path(s), :method => "" %>
           </td>
           <td>
             <%= link_to "delete", song_path(s), :method => "delete" %>
