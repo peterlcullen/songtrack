@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  foreign_id: MyString
+  source: MyString
+
+two:
+  foreign_id: MyString
+  source: MyString
