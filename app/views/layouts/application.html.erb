@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Songly2</title>
+  <title>Example</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -15,11 +15,11 @@
       
       <div class="page-header"> 
         <div class="row">
-          <div class="span8">
+          <div class="span11">
             <h1>Example of the site <small>for now..</small></h1>
           </div>
           
-          <div class="span6">
+          <div class="span5">
             
             <% if current_user.blank? %>
             
@@ -35,7 +35,7 @@
               </div>
 
               <p>Or you can <a href="/sessions/new" data-controls-modal="modal-from-dom-signup" data-backdrop="true" data-keyboard="true">sign up</a>.</p>
-              <p>Signing in allows you to add/delete songs. But songs are not user-specific yet.</p>
+              <p>Signing in allows you to add/delete songs.</p>
           
           <% else %>
           
@@ -54,7 +54,7 @@
       
       
       <div class="row">
-        <div class="span10">
+        <div class="span12">
           <% flash.each do |name, msg| %>
             <% if name = "notice" %>
               <div class="alert-message block-message success fade in" data-alert="alert">
@@ -91,11 +91,11 @@
               <div class="modal-footer">
               </div>
           </div>
-          <p>
+          <h3>
             <a href="#" data-controls-modal="modal-from-dom-grooveshark-instructions" data-backdrop="true" data-keyboard="true">
               grooveshark instructions
             </a>
-          </p>
+          </h3>
           
           <div id="modal-from-dom-bandcamp-instructions" class="modal hide fade">
               <div class="modal-header">
@@ -118,11 +118,11 @@
               <div class="modal-footer">
               </div>
           </div>
-          <p>
+          <h3>
             <a href="#" data-controls-modal="modal-from-dom-bandcamp-instructions" data-backdrop="true" data-keyboard="true">
               bandcamp instructions
             </a>
-          </p>
+          </h3>
           
           <div id="modal-from-dom-soundcloud-instructions" class="modal hide fade">
               <div class="modal-header">
@@ -142,11 +142,11 @@
               <div class="modal-footer">
               </div>
           </div>
-          <p>
+          <h3>
             <a href="#" data-controls-modal="modal-from-dom-soundcloud-instructions" data-backdrop="true" data-keyboard="true">
               soundcloud instructions
             </a>
-          </p>
+          </h3>
           
         </div>
         

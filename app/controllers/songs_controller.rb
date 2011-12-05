@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
   def index
-    @user = User.new
+    @user = current_user
+    @new_user = User.new
     @songs = Song.all.reverse
     @song = Song.new
   end
@@ -11,6 +12,7 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(params[:song])
+    @song.users << current_user
     if @song.save
       redirect_to root_url, :notice => "Song created successfully"
     else

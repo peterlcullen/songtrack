@@ -1,16 +1,16 @@
 
-<%= form_for @user do |f| %>
+<%= form_for @new_user do |f| %>
   <div class="modal-header">
     <a href="#" class="close">&times;</a>
     <h3>Sign up</h3>
   </div>
   
   <div class="modal-body">
-    <% if @user.errors.any? %>
+    <% if @new_user.errors.any? %>
       <div class="error_messages">
         <h2>Form is invalid</h2>
         <ul>
-          <% for message in @user.errors.full_messages %>
+          <% for message in @new_user.errors.full_messages %>
             <li><%= message %></li>
           <% end %>
         </ul>

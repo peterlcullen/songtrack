@@ -1,6 +1,10 @@
 Songly2::Application.routes.draw do
-  resources :users
+  resources :users do
+    resources :songs
+  end
+  
   resources :sessions
+  
   resources :songs
   
   root :to => 'songs#index'

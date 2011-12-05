@@ -3,9 +3,9 @@
     <a href="/song/new" class="btn" data-controls-modal="modal-from-dom-new-song" data-backdrop="true" data-keyboard="true">Add a song</a> 
   <% end %> 
 
-<div id="modal-from-dom-new-song" class="modal hide fade">
+  <div id="modal-from-dom-new-song" class="modal hide fade">
     <%= render "songs/new" %>
-</div>
+  </div>
 
 
 <% if @songs.blank? %>
@@ -37,7 +37,18 @@
             <% end %>
           </td>
           <td>
-            <p><small>added <%= time_ago_in_words(s.created_at) %> ago</small></p>
+            <p>
+              <small>
+                added <%= time_ago_in_words(s.created_at) %> ago by <%= s.users.first.email unless s.users.empty? %>
+              </small>
+            </p>
+          </td>
+          <td>
+            <p>
+              <small>
+                
+              </small>
+            </p>
           </td>
           <% unless current_user.blank? %> 
             <td>
