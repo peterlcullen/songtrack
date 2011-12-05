@@ -29,7 +29,7 @@
           <td>
             <p>
               <small>
-                added <%= time_ago_in_words(s.created_at) %> ago by <%= link_to s.users.first.email, user_path(s.users.first.id) unless s.users.empty? %>
+                added <%= time_ago_in_words(s.created_at) %> ago by <%= link_to s.users.first.username, user_path(s.users.first.id) unless s.users.empty? %>
               </small>
             </p>
           </td>
