@@ -12,4 +12,11 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+  
+  def show
+    @new_user = User.new
+    @user = User.find(params[:id])
+    @song = Song.new
+  end
+  
 end

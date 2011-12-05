@@ -1,0 +1,11 @@
+<p><a href="/">Home</a></p>
+
+<% if current_user == @user %>
+  <a href="/song/new" class="btn" data-controls-modal="modal-from-dom-new-song" data-backdrop="true" data-keyboard="true">Add a song</a> 
+
+  <div id="modal-from-dom-new-song" class="modal hide fade">
+    <%= render "songs/new" %>
+  </div>
+<% end %>
+
+<%= render :partial => "shared/songlist", :locals => { :songs => @user.songs, :username => @user.email } %>
