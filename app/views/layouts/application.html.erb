@@ -56,13 +56,13 @@
       <div class="row">
         <div class="span12">
           <% flash.each do |name, msg| %>
-            <% if name = "notice" %>
-              <div class="alert-message block-message success fade in" data-alert="alert">
+            <% if name.to_s == "alert" %>
+              <div class="alert-message block-message error fade in" data-alert="alert">
                 <a href="#" class="close">×</a>
                 <p><%= msg %></p>
               </div>
             <% else %>
-              <div class="alert-message block-message warning fade in" data-alert="alert">
+              <div class="alert-message block-message success fade in" data-alert="alert">
                 <a href="#" class="close">×</a>
                 <p><%= msg %></p>
               </div>
