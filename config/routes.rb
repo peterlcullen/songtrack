@@ -1,4 +1,4 @@
-Songly2::Application.routes.draw do
+Songtrack::Application.routes.draw do
   resources :users do
     resources :songs
   end

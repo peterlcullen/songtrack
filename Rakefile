@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Songly2::Application.load_tasks
+Songtrack::Application.load_tasks
