@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Example</title>
+  <title>SONGTRACK</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -16,7 +16,7 @@
       <div class="page-header"> 
         <div class="row">
           <div class="span11">
-            <h1>Example of the site <small>for now..</small></h1>
+            <h1>SONGTRACK <small>track your songs</small></h1>
           </div>
           
           <div class="span5">
@@ -81,10 +81,10 @@
               
               <div class="modal-body">
                 <p>
-                  Go to <a href="http://www.grooveshark.com">grooveshark</a> and select share a song.  In the widget, find the songIDs use that for input.
+                  First, click and drag this button to your bookmarks bar.  <a href="javascript:alert('Song: '+window.Grooveshark.getCurrentSongStatus().song.songName+'\n\nArtist: '+window.Grooveshark.getCurrentSongStatus().song.artistName+'\n\nSong ID: '+window.Grooveshark.getCurrentSongStatus().song.songID);" class='label notice'>SongTrackThis</a>
                 </p>
                 <p>
-                  Hopefully I can figure out some fancy javascript bookmarklet similar to pinterest to get this to work.
+                  Then while listening to a song on <a href="http://www.grooveshark.com">grooveshark</a>, use the bookmark to get the Song ID to add to Songtrack.
                 </p>
               </div>
               
