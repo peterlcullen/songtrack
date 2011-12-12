@@ -7,5 +7,5 @@
   <%= render "songs/new" %>
 </div>
 
-<%= render :partial => "shared/songlist", :locals => { :songs => @songs, :username => "everybody" } %>
+<%= render :partial => "shared/songlist", :locals => { :songs => @songs.reverse, :username => "everybody" } %>
 

@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   def index
     @user = current_user
     @new_user = User.new
-    @songs = Song.all.reverse
+    @songs = Song.all
     @song = Song.new
   end
   

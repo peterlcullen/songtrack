@@ -8,4 +8,4 @@
   </div>
 <% end %>
 
-<%= render :partial => "shared/songlist", :locals => { :songs => @user.songs, :username => @user.username } %>
+<%= render :partial => "shared/songlist", :locals => { :songs => @user.songs.reverse, :username => @user.username } %>
